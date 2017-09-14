@@ -8,7 +8,7 @@ sc = SparkContext(conf = sparkConf)
 
 def occupation_dictionary():
     occupation_dict={}
-    with open("D:\\BigDataChallenge\\ml-1m\\occupation.dat") as f:
+    with open("\\occupation.dat") as f:
         for each_occupation in f:
             fields=each_occupation.split("\t")
             occupation_dict[int(fields[0])]=fields[1].rstrip()
@@ -16,11 +16,11 @@ def occupation_dictionary():
 
 occupation_bcast=sc.broadcast(occupation_dictionary())
 
-rdd_ratings=sc.textFile("D:\\BigDataChallenge\\ml-1m\\ratings.dat")
+rdd_ratings=sc.textFile("\\ratings.dat")
 
-rdd_users=sc.textFile("D:\\BigDataChallenge\\ml-1m\\users.dat")
+rdd_users=sc.textFile("\\users.dat")
 
-rdd_movies=sc.textFile("D:\\BigDataChallenge\\ml-1m\\movies.dat")
+rdd_movies=sc.textFile("\\movies.dat")
 
 movies_ratings=rdd_ratings.map(lambda x:(int(x.split("::")[0]),(int(x.split("::")[1]),int(x.split("::")[2]))))
 
@@ -36,7 +36,7 @@ ratings_user_genre_avg=ratings_user_genre.reduceByKey(lambda x,y:(x[0]+y[0],x[1]
 
 out_data = ratings_user_genre_avg.collect()
 
-with open("C:\\Users\\XPS\\Desktop\\ratings.txt", "w") as f: 
+with open("\\result.dat", "w") as f: 
     for i in xrange(len(out_data)-1):
         f.write(str(out_data[i][0])+" => " +str(out_data[i][1][0:5])+'\n')
     f.close()
