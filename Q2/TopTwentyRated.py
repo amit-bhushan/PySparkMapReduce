@@ -5,7 +5,6 @@ from pyspark import SparkConf, SparkContext
 sparkConf = SparkConf().setAppName("TopTwentyRated")
 sc = SparkContext(conf = sparkConf)
 
-
 def movies_dictionary():
     movies_dict={}
     with open("movies file path") as f:
