@@ -36,7 +36,7 @@ ratings_user_genre_avg=ratings_user_genre.reduceByKey(lambda x,y:(x[0]+y[0],x[1]
 
 out_data = ratings_user_genre_avg.collect()
 
-with open("\\result.dat", "w") as f: 
+with open("\\rating_result.dat", "w") as f: 
     for i in xrange(len(out_data)-1):
         f.write(str(out_data[i][0])+" => " +str(out_data[i][1][0:5])+'\n')
     f.close()
