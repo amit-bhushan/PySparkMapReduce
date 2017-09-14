@@ -8,13 +8,13 @@ sc = SparkContext(conf = sparkConf)
 
 def movies_dictionary():
     movies_dict={}
-    with open("D:\\BigDataChallenge\\ml-1m\\movies.dat") as f:
+    with open("\\movies.dat") as f:
         for each_movie in f:
             fields=each_movie.split("::")
             movies_dict[int(fields[0])]=fields[1]
     return (movies_dict)
 
-rdd=sc.textFile("D:\\BigDataChallenge\\ml-1m\\ratings.dat")
+rdd=sc.textFile("\\ratings.dat")
 
 movies_bcast=sc.broadcast(movies_dictionary())
 
