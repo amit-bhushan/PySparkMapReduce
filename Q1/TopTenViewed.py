@@ -5,7 +5,6 @@ from pyspark import SparkConf, SparkContext
 sparkConf = SparkConf().setAppName("TopTenViewed")
 sc = SparkContext(conf = sparkConf)
 
-
 def movies_dictionary():
     movies_dict={}
     with open("\\movies.dat") as f:
