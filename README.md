@@ -3,7 +3,6 @@ PySpark Map Reduce Coding Problem:
  
 The problem mentioned below revolves around movies dataset. The dataset contains 4 files which are follows, 
  
- 
 File Name 	Description / Schema 
 movies.dat 	MovieID – Title – Genres 
 ratings.dat 	UserID – MovieID – Rating – Timestamp 
